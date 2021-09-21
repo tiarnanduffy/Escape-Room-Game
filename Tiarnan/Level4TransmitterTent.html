@@ -1,0 +1,316 @@
+<html>
+    <head>
+        <title>Communications Tent</title>
+        <link href="css/layout.css" rel="stylesheet" type="text/css" />
+        
+        <!--        links for the styling of the bottom bit-->
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="css/relativeGeigerCounter.css">
+        <link rel="stylesheet" href="css/relativeHiddenGeigerCounter.css">
+        <link rel="stylesheet" href="css/inventory.css">
+        
+        <script type="text/javascript" src="Javascript/geigerCounterJS.js"></script>
+        
+        <!--    load inventory script-->
+        <script type="text/javascript" src="Javascript/loadInventory.js"></script>    
+    
+<!--    INVENTORY MANAGER SCRIPT-->
+        <script type = "text/javascript">
+            var inventoryItems = ["", "", "", ""];
+            
+
+            if(JSON.parse(sessionStorage.getItem("globalInventory")) != null){
+                inventoryItems = JSON.parse(sessionStorage.getItem("globalInventory"));
+            } 
+
+            var inventoryFull = false;
+            var selectedItem = "unfocussed";
+            var mouseIsOver = false;
+            var possibleItems = ["Inv1", "Inv2", "Inv3", "Inv4"];
+            var actualItem = "";        
+
+            function selectItem(indexOfItem){
+                console.log("item selected " + indexOfItem);
+                if(!mouseIsOver){
+                   selectedItem = indexOfItem; 
+
+                    for(i = 0; i< inventoryItems.length; i++){
+                        if(possibleItems[i] == selectedItem){
+                            itemIndex = i;
+                            break;
+                        }
+                    }
+
+                    if(inventoryItems[itemIndex] != ""){
+                        actualItem = inventoryItems[itemIndex];
+                    }
+
+                }
+
+            }
+
+
+
+
+            function removeItem(){
+                console.log("selected item now is" + selectedItem);
+                if(possibleItems.includes(selectedItem)){
+                    console.log("The item that was used was no. " + selectedItem);
+                    actualItem = "Blank Item";
+                    var itemIndex = 0;
+
+
+                    // do stuff here...
+                    for(i = 0; i< inventoryItems.length; i++){
+                        if(possibleItems[i] == selectedItem){
+                            itemIndex = i;
+                            break;
+                        }
+                    }
+
+                    if(inventoryItems[itemIndex] != ""){
+                        actualItem = inventoryItems[itemIndex];
+                        inventoryItems[itemIndex] = "";
+
+                        // remove images
+                        var inventorySlot = "slot" + (i+1) + "Pic";
+                        var domInvSlot = document.getElementById(inventorySlot);
+                        domInvSlot.src = "images/white.png"
+
+                        actualItem = ""
+
+                    }
+                    else{
+                        alert("There was no item to use!");
+                    }
+
+                    console.log("The item that was used was acc " + actualItem);
+
+                    console.log(inventoryItems);
+                    sessionStorage.setItem('globalInventory', JSON.stringify(inventoryItems));
+                }
+                selectedItem = "Button has been pressed";
+
+            }
+
+
+            function pickUpItem(itemToPickUp){
+                inventoryFull = true;
+                console.log(inventoryItems);
+                for(i = 0; i<inventoryItems.length; i++){
+                    if(inventoryItems[i] == ""){
+                        inventoryFull = false;
+                        inventoryItems[i] = itemToPickUp;
+
+
+                        // i = index
+                        var inventorySlot = "slot" + (i+1) + "Pic";
+                        var domInvSlot = document.getElementById(inventorySlot);
+
+                        if(itemToPickUp == "Pickaxe"){
+                            domInvSlot.src = "images/pickaxe.png";
+                        }
+
+                        if(itemToPickUp == "Sword"){
+                            domInvSlot.src = "images/sword.png";
+                        }
+
+                        if(itemToPickUp == "Keys"){
+                            domInvSlot.src = "images/House_Key.png";
+                            console.log("please work")
+                        }
+                        
+                        if(itemToPickUp == "Battery"){
+                            domInvSlot.src = "images/battery.jpg";
+                            
+                        }
+
+                        break;
+
+                    }
+                }
+
+                if(inventoryFull){
+                    alert("inventory is full");
+                }
+
+                sessionStorage.setItem('globalInventory', JSON.stringify(inventoryItems));
+                
+
+            }
+
+    </script>
+        
+        <script type="text/javascript" src="Javascript/external.js">
+        </script>  
+        
+        <script type="text/javascript" src = "Javascript/armyLevelTimer.js"></script>
+        
+    </head>
+    <body onload = "loadInventoryFunction(); initalGeigerPosition(); loadScore(); displayBatteryAfterInsert(); startTimer();">
+        <div id = "wrapper">
+            <div id = "topPart">   
+                <div id = "imageContainer">
+                    <img id="gameScreen" src="images/telecommunicationsTent960-540.jpg" alt="telecommunications tent" />
+                </div>
+                
+                <div>
+                    <img id="transmitterImage" src="images/transmitter.jpg" alt="transmitter" onclick="secretMessage();"/>
+                    <img id="insertBatteryImage" src="images/insertBattery.jpg" alt="insert battery" onclick="insertBattery();"/>
+                    <img id="baseSignLeft" src="images/baseSignLeft.jpg" alt="base sign" onclick="goToBase();"/>
+                    <img id="insertedBattery" src="images/battery.jpg" alt="inserted battery"/>
+                    
+                    <div id="myModal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="messagePlayer" src="images/radio.jpg" alt="radio player">
+                        
+                        <div id="audioPlayer">
+                            <audio controls>
+                                <source src="messageAudio.mp3" type="audio/mpeg">
+                                Your browser does not support the audio tag.
+                            </audio>
+                        
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+            <div id = "bottom">
+                <div id = "geigerWrapper">
+                    <div id = "geigerBoxContainer">
+                        <div id = "geigerCounter">
+                            <div id = "bottomLine1"></div>
+                            <div id = "innerContainer">
+                                <div class = "geigerCol1">
+                                    <ul id = "geigerScale">
+                                        <li id = "topDanger" class = "geigerBoxes"></li>
+                                        <li class = "geigerBoxes">750</li>
+                                        <li class = "geigerBoxes">500</li>
+                                        <li class = "geigerBoxes">250</li>
+                                        <li class = "geigerBoxes">0</li>
+                                    </ul>
+                                </div>
+
+                                <div class = "geigerCol2">
+                                    <div id = "counterBar">
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <div id = "geigerButton1">
+
+                            </div>
+
+                            <div id = "geigerButton2" onclick="minimise();">
+                            </div>
+                            
+                        </div>
+                    
+                    </div>
+                    
+                    
+                    
+                    <div id = "minimisedCounter">
+                        <div id = "minBottomLine1">
+                        </div>
+
+                        <div id = "minGeigerButton1" onclick="minimise();">
+                        </div>
+
+                        <div id = "minGeigerButton2">
+                        </div>
+                    </div>
+                </div>
+                <div id = "scoreWrapper">
+                    <p id = "theScore">
+                    </p>
+                </div>
+                <div id = "textWrapper">
+                    <p id = "theText">Telecommunications tent.<br>There's a radio to the right.</p>
+                </div>
+                <div id = "inventoryWrapper">
+                    <div id = "inventory">
+                        <div class = "inventoryOFrame" id = "Oframe1">
+                            <div class = "inventoryIFrame" id = "Iframe1" tabindex="0">
+                                <img class = "IFramePic" src = "images/white.png" id = "slot1Pic">
+                            </div>
+                        </div>
+
+                        <div class = "inventoryOFrame" id = "Oframe2">
+                            <div class = "inventoryIFrame" id = "Iframe2" tabindex="0">
+                            <img class = "IFramePic" src = "images/white.png" id = "slot2Pic">
+                            </div>
+                        </div>
+
+                        <div class = "inventoryOFrame" id = "Oframe3">
+                            <div class = "inventoryIFrame" id = "Iframe3" tabindex="0">
+                            <img class = "IFramePic" src = "images/white.png" id = "slot3Pic">
+                            </div>
+                        </div>
+
+                        <div class = "inventoryOFrame" id = "Oframe4">
+                            <div class = "inventoryIFrame" id = "Iframe4" tabindex="0">
+                            <img class = "IFramePic" src = "images/white.png" id = "slot4Pic">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+            
+        </div>
+                       <!--    INVENTORY INTERACTION SCRIPT-->
+    <script type="text/javascript">      
+        
+        document.getElementById('Iframe1').addEventListener('focusin', function(){
+            selectItem("Inv1");
+
+            if(actualItem == "Pickaxe"){
+                document.documentElement.style.cursor = "url(images/pickaxeIcon.png), auto";
+            }
+
+            if(actualItem == "Sword"){
+                document.documentElement.style.cursor = "url(images/swordIcon.png), auto";
+            }
+            
+            if(actualItem == "Keys"){
+                document.documentElement.style.cursor = "url(images/keysIcon.png), auto";
+            }
+            
+            if(actualItem == "Battery"){
+                document.documentElement.style.cursor = "url(images/batteryIcon.png), auto";
+            }
+
+
+        })
+
+        document.getElementById('Iframe1').addEventListener('focusout', function(){
+            document.documentElement.style.cursor = "auto";
+            if(!mouseIsOver){            
+               selectItem("unfocussed"); 
+            }
+
+        })
+        
+        var useBatteryHere = document.getElementById("insertBatteryImage");
+        useBatteryHere.onmouseover = function()   {
+            console.log("ON")
+            mouseIsOver = true;
+
+        };
+        useBatteryHere.onmouseout = function()   {
+            console.log("OFF")
+            mouseIsOver = false;
+        };
+        
+    </script>
+        
+    </body>
+    
+</html>

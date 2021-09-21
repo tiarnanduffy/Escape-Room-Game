@@ -1,0 +1,59 @@
+#inventory{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border: 5px solid #4f3716;
+    background: black;
+
+}
+
+.inventoryOFrame{
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 15vh;
+    height: 15vh;
+    background: linear-gradient(#FFD700, #FFE55C, #FFD700);
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.inventoryIFrame{
+    position: absolute;
+    background: radial-gradient(#654421, #2b1d0e);
+    top: 0.75vh;
+    left: 0.75vh;
+    width: 13.5vh;
+    height: 13.5vh;
+}
+
+#Iframe1{
+    background: radial-gradient(#654421, #2b1d0e);
+}
+#IFrame2{
+    background: radial-gradient(#654421, #2b1d0e);
+
+}
+#IFrame3{
+    background: radial-gradient(#654421, #2b1d0e);
+
+}
+#IFrame4{
+    background: radial-gradient(#654421, #2b1d0e);
+}
+
+.IFramePic{
+    position: absolute;
+    top: 0.75vh;
+    left: 0.75vh;
+    width: 12vh;
+    height: 12vh;
+    max-height: 12vh;
+    max-width: 12vh;
+}

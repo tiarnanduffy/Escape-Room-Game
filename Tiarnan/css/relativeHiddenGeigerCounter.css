@@ -1,0 +1,51 @@
+#minimisedCounter{
+    position: absolute;
+    opacity: 1;
+    overflow: auto;
+    border: 1px solid black;
+    border-radius: 12px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    width: 12.5vw;
+    height: 8vh;
+    background: radial-gradient(#f7f7f7, #8c8c8c);
+}
+
+#minBottomLine1{
+    position: absolute;
+    margin: auto;
+    width: 5vw;
+    height: 2px;
+    left: 0;
+    right: 0;
+    bottom: 1.5vh;
+    background-color: black;
+    z-index: 10;
+
+}
+
+#minGeigerButton1{
+    position: absolute;
+    height: 3vh;
+    width: 1.5vw;
+    top: 1vh;
+    left: 8vw;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: limegreen;
+
+}
+
+#minGeigerButton2{
+    position: absolute;
+    height: 3vh;
+    width: 1.5vw;
+    top: 1vh;
+    left: 10vw;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: red;
+
+}

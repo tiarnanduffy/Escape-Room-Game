@@ -1,0 +1,222 @@
+
+
+/*Abandoned Base*/
+
+#invisibleDoorImage {
+    position: absolute;
+    width: 15%;
+    height: auto;
+    left: 75vh;
+    bottom: 10vh;
+/*    display: block;*/
+}
+
+#leftSign {
+    position: absolute;
+    width: 10%;
+    height: auto;
+    left: 0vh;
+    bottom: 40vh;
+}
+
+#rightSign {
+    position: absolute;
+    width: 10%;
+    height: auto;
+    right: 0vh;
+    bottom: 40vh;
+/*    display: block;*/
+    
+}
+
+/*Supply Tent*/
+
+#baseSignRight {
+    position: absolute;
+    width: 10%;
+    height: auto;
+    right: 16.5vh;
+    bottom: 55vh;
+    display: block;
+}
+
+#radiationImage {
+    position: absolute;
+    width: 4%;
+    right: 27.5vh;
+    height: auto;
+    bottom: 37.5vh;
+    display: block;
+}
+
+#hazmatSuit {
+    position: absolute;
+    width: 6%;
+    right: 55vh;
+    height: auto;
+    bottom: 42vh;
+    display: block;
+    visibility: hidden;
+}
+
+#batteryImage {
+    position: absolute;
+    width: 3%;
+    right: 86vh;
+    height: auto;
+    bottom: 43vh;
+    display: block;
+    visibility: visible;
+}
+
+
+/*Telecommunications Room*/
+
+#baseSignLeft {
+    position: absolute;
+    width: 10%;
+    height: auto;
+    left: 20vh;
+    bottom: 60vh;
+}
+
+#transmitterImage {
+    position: absolute;
+    width: 35%;
+    right: 20vh;
+    bottom: 23.5vh;
+    display: block;
+}
+
+#insertBatteryImage {
+    position: absolute;
+    width: 13%;
+    left: 37.5%;
+    bottom: 40%;
+    display: block;
+}
+
+#insertedBattery {
+    position: absolute;
+    width: 9%;
+    left: 85vh;
+    bottom: 47.5vh;
+    display: block;
+    visibility: hidden;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+#audioPlayer {
+    width: 300px;
+    position: relative;
+    bottom: 50vh;
+    left: 68vh;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/*general*/
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #181818;
+    font-family: verdana, sans-serif;
+    color: white;
+    transition: visibility 2s, opacity 2s, background 2s ease-in-out;
+}
+
+
+#wrapper{
+    width: 90vw;
+    margin: auto;
+    height: 95vh;
+/*    background: lightgreen;*/
+
+}
+
+#topPart{
+    margin: auto;
+    margin-top: 2.5vh;
+    height: 75vh;
+/*    background: lightblue;             */
+}
+
+#imageContainer{
+    margin: auto;
+    width: 90%;
+    height: 100%;
+/*    background: #03fca1;*/
+}
+
+#gameScreen{
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#bottom{
+    margin: auto;
+    margin-top: 2.5vh;
+    height: 17.5vh;
+/*    background: coral;*/
+}
+
+
+.item1 {
+    
+}
+
+.item2 {
+    
+}
+
+.item3 {
+    
+    
+}
+
+.item4 {
+    
+}
+
+
+.fadeOut{
+    background: black;
+    visibility: hidden;
+    opacity: 0;
+
+}

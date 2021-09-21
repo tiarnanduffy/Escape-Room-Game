@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #181818;
+    font-family: verdana, sans-serif;
+    color: white;
+}
+
+#wrapper{
+    width: 90vw;
+    margin: auto;
+    height: 95vh;
+/*    background: lightgreen;*/
+
+}
+
+#topPart{
+    margin: auto;
+    margin-top: 2.5vh;
+    height: 75vh;
+/*    background: lightblue; */
+    background: black;
+    border: 5px solid #4f3716;
+}
+
+#imageContainer{
+    position: relative;
+    margin: auto;
+    width: 90%;
+    height: 100%;
+/*    background: #03fca1;*/
+}
+
+#sampleImage{
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+
+}
+
+#door{ 
+    position: absolute;
+    top: 15vh;
+    left: 0vw;
+    height: 50vh;
+    width: 7.5vw;
+/*                border: 1px solid red;*/
+}
+#bottomPart{
+    margin: auto;
+    margin-top: 2.5vh;
+    height: 17.5vh;
+/*    background: coral;*/
+
+}
+#geigerWrapper{
+    position: relative;
+    border: 1px solid black;
+    border-left: none;
+    border-right: none;
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+
+#geigerBoxContainer{
+    width: 100%;
+    height: 100%;
+    border: 5px solid #4f3716;
+    background: black;
+    
+}
+
+#scoreWrapper{
+    position: relative;
+    border: 1px solid black;
+    border-right: none;
+    border-left: none;
+    float: left;
+    width: 10%;
+    height: 100%;
+}
+
+#theScore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border: 5px solid #4f3716;
+    background: black;
+    line-height: 5vh;
+    
+    font-size: 4vh;
+/*    padding-top: 3vh;*/
+/*    text-align: center;*/
+    font-family: 'Special Elite', cursive;
+ 
+}
+
+#textWrapper{
+    position: relative;
+    border: 1px solid black;
+    border-right: none;
+    border-left: none;
+    float: left;
+    width: 30%;
+    height: 100%;
+    
+    
+}
+
+#theText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border: 5px solid #4f3716;
+    background: black;
+    font-size: 4vh;
+    font-family: 'Special Elite', cursive;
+}
+
+#inventoryWrapper{
+    position: relative;
+    border: 1px solid black;
+    border-right: none;
+    border-left: none;
+    float: left;
+    width: 40%;
+    height: 100%;
+}
+
+
